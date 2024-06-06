@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chinese Chess</title>
+    <link rel="icon" href="./images/icon.png" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: url(./images/chineseArchitecture.jpg) no-repeat center fixed;
+      }
+
+      main {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 540px;
+        height: 540px;
+
+        background: #bb7a37;
+        border: 1px solid black;
+        border-radius: 8px;
+      }
+
+      .chessboard {
+        display: flex;
+        flex-wrap: wrap;
+
+        justify-content: center;
+        align-items: center;
+
+        width: 402px;
+        height: 452px;
+        border: 1px solid black;
+
+        position: relative;
+      }
+      .top {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .chess {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+      }
+      .center {
+        display: flex;
+
+        width: 100%;
+        border: 1px solid black;
+      }
+      .text {
+        display: flex;
+        flex: 1;
+
+        justify-content: center;
+        align-items: center;
+
+        font-family: "標楷體";
+        font-size: 30px;
+        line-height: 30px;
+        text-align: center;
+
+        height: 50px;
+      }
+
+      .bottom {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      .line1,
+      .line2 {
+        position: relative;
+      }
+      .line1::before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        top: -24px;
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid black;
+        transform-origin: bottom center;
+        transform: rotateZ(45deg) scale(1.414);
+      }
+      .line2::before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        top: -26px;
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid black;
+        transform-origin: bottom center;
+        transform: rotateZ(135deg) scale(1.414);
+      }
+
+      .ch {
+        display: flex;
+        justify-content: space-between;
+
+        position: absolute;
+        height: 50px;
+      }
+      .bc {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid black;
+        border-radius: 50%;
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 22px;
+        font-family: "新細明體";
+
+        z-index: 5;
+        background: blanchedalmond;
+      }
+      .b1 {
+        top: -20px;
+        width: 440px;
+      }
+      .b2 {
+        top: 80px;
+        width: 340px;
+      }
+      .b3 {
+        top: 130px;
+        width: 440px;
+      }
+      .r3 {
+        top: 280px;
+        width: 440px;
+        color: red;
+      }
+      .r2 {
+        top: 330px;
+        width: 340px;
+        color: red;
+      }
+      .r1 {
+        top: 430px;
+        width: 440px;
+        color: red;
+      }
+      .poem {
+        writing-mode: vertical-rl;
+
+        font-size: 22px;
+        font-family: "標楷體";
+        color: #ffa609;
+
+        text-shadow: 3px 2px 4px black;
+        letter-spacing: 5px;
+
+        margin: 0px 14px;
+        height: 540px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="poem">棋盤裡，車無輪，馬無韁，叫聲將軍提防提防</div>
+
+      <div class="container">
+        <div class="chessboard">
+          <div class="ch b1">
+            <div class="bc">車</div>
+            <div class="bc">馬</div>
+            <div class="bc">象</div>
+            <div class="bc">士</div>
+            <div class="bc">將</div>
+            <div class="bc">士</div>
+            <div class="bc">象</div>
+            <div class="bc">馬</div>
+            <div class="bc">車</div>
+          </div>
+          <div class="ch b2">
+            <div class="bc">包</div>
+            <div class="bc">包</div>
+          </div>
+          <div class="ch b3">
+            <div class="bc">卒</div>
+            <div class="bc">卒</div>
+            <div class="bc">卒</div>
+            <div class="bc">卒</div>
+            <div class="bc">卒</div>
+          </div>
+          <div class="ch r3">
+            <div class="bc">兵</div>
+            <div class="bc">兵</div>
+            <div class="bc">兵</div>
+            <div class="bc">兵</div>
+            <div class="bc">兵</div>
+          </div>
+          <div class="ch r2">
+            <div class="bc">炮</div>
+            <div class="bc">炮</div>
+          </div>
+          <div class="ch r1">
+            <div class="bc">俥</div>
+            <div class="bc">傌</div>
+            <div class="bc">相</div>
+            <div class="bc">仕</div>
+            <div class="bc">帥</div>
+            <div class="bc">仕</div>
+            <div class="bc">相</div>
+            <div class="bc">傌</div>
+            <div class="bc">俥</div>
+          </div>
+          <div class="top">
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess line1"></div>
+            <div class="chess line2"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <!--  -->
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess line2"></div>
+            <div class="chess line1"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <!--  -->
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <!--  -->
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+          </div>
+          <div class="center">
+            <div class="text"><p>楚河</p></div>
+            <div class="text"><p>漢界</p></div>
+          </div>
+          <div class="bottom">
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <!--  -->
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <!--  -->
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess line1"></div>
+            <div class="chess line2"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <!--  -->
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess line2"></div>
+            <div class="chess line1"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+            <div class="chess"></div>
+          </div>
+        </div>
+      </div>
+      <div class="poem">圖畫裡，龍不吟，虎不嘯，小小書僮可笑可笑</div>
+    </main>
+  </body>
+</html>
